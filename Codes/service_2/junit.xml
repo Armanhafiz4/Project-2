@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="project2" name="pytest" skipped="0" tests="1" time="0.185" timestamp="2021-01-22T16:51:28.551361"><testcase classname="tests.test_service_2.TestResponse" name="test_get_strength" time="0.012" /></testsuite></testsuites>
