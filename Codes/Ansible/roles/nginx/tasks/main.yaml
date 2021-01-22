@@ -1,0 +1,13 @@
+- name: install NGINX using apt
+  apt:
+    package: nginx
+    state: latest
+    update_cache: true
+- name: Copy nginx.conf to the remote machine
+  template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+- name: reload NGINX Service
+  service:
+    name: nginx
+    state: reloaded
