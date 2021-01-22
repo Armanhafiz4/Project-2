@@ -4,7 +4,7 @@ pipeline{
         DATABASE_URI = credentials("DATABASE_URI")
         app_version = 'version1'
         rollback = 'true'
-        replicas = 3
+        replicas = 5
     }
     stages{
         stage("Testing"){
@@ -20,15 +20,14 @@ pipeline{
             steps{
                 script{
                     if (env.rollback == 'false') {
-                        sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
-                        sh "docker system prune -af"
+                        sh "bash Jenkins/build_push.sh"
                     }
                 }
             }
         }
         stage("Config Management (ansible)"){
             steps{
-                sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+                sh "bash Jenkins/config_ansible.sh"
             }
         }
         stage("Deploy"){

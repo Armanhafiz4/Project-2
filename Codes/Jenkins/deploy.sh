@@ -1,6 +1,9 @@
 #!/bin/bash
-scp -i ~/.ssh/ansible_id_rsa docker-compose.yaml jenkins@swarm-master:/home/jenkins/docker-compose.yaml
-ssh -i ~/.ssh/ansible_id_rsa jenkins@swarm-master << EOF
-    export DATABASE_URI=${DATABASE_URI} app_version=${app_version} replicas=${replicas}
-    docker stack deploy --compose-file /home/jenkins/docker-compose.yaml Codes 
+scp -i ~/.ssh/id_rsa docker-compose.yaml jenkins@swarm-manager:/home/jenkins/docker-compose.yaml
+ssh -i ~/.ssh/id_rsa jenkins@swarm-manager << EOF
+    export DATABASE_URI=${DATABASE_URI}
+    export app_version = 'version1'
+    export rollback = 'false'
+    export replicas = 5
+    docker stack deploy --compose-file /home/jenkins/docker-compose.yaml football_gen_service_1
 EOF
