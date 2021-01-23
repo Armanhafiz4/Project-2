@@ -10,7 +10,6 @@ pipeline{
                         sh "bash Jenkins/test.sh"
                 }
             }
-        }
         stage("Build & Push"){
             steps{
                         sh "bash Jenkins/build_push.sh"
@@ -23,7 +22,7 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                        sh "bash Jenkins/deploy.sh"
+			sh "bash Jenkins/deploy.sh"
                 }
         }
     post{
@@ -32,5 +31,7 @@ pipeline{
             cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false, failUnstable: false, onlyStable: false
         }
     }
+} 
+
 }
         
