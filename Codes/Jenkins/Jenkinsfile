@@ -3,14 +3,11 @@ pipeline{
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
         app_version = 'version1'
-        rollback = 'true'
-        replicas = 5
     }
     stages{
         stage("Testing"){
             steps{
                 script{
-                    if (env.rollback == 'false') {
                         sh "bash jenkins/test.sh"
                     }
                 }
@@ -19,12 +16,10 @@ pipeline{
         stage("Build & Push"){
             steps{
                 script{
-                    if (env.rollback == 'false') {
                         sh "bash Jenkins/build_push.sh"
                     }
                 }
             }
-        }
         stage("Config Management (ansible)"){
             steps{
                 sh "bash Jenkins/config_ansible.sh"
@@ -35,7 +30,6 @@ pipeline{
                 sh "bash jenkins/deploy.sh"
             }
         }
-    }
     post{
         always{
             junit "**/junit.xml"
