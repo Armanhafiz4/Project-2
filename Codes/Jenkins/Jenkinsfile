@@ -19,7 +19,7 @@ pipeline{
                         sh "bash Jenkins/build_push.sh"
                     }
                 }
-            }
+        }
         stage("Config Management (ansible)"){
             steps{
                 	sh "bash Jenkins/config_ansible.sh"
