@@ -23,8 +23,9 @@ pipeline{
         stage("Deploy"){
             steps{
 			sh "bash Jenkins/deploy.sh"
-                }
-        }
+                	}
+        	}
+	}
     post{
         always{
             junit "**/junit.xml"
@@ -32,6 +33,4 @@ pipeline{
         }
     }
 } 
-
-}
         
