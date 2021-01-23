@@ -7,31 +7,23 @@ pipeline{
     stages{
         stage("Testing"){
             steps{
-                script{
                         sh "bash Jenkins/test.sh"
-                    }
                 }
             }
         }
         stage("Build & Push"){
             steps{
-                script{
                         sh "bash Jenkins/build_push.sh"
-                    }
                 }
         }
         stage("Config Management (ansible)"){
             steps{
-                script{
                         sh "bash Jenkins/config_ansible.sh"
-                    }
                 }
         }
         stage("Deploy"){
             steps{
-                script{
                         sh "bash Jenkins/deploy.sh"
-                    }
                 }
         }
     post{
