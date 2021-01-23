@@ -17,8 +17,8 @@ pipeline{
 	}
 	stage("Config Management (ansible)"){
             steps{
-                        sh "cd Codes/Ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
-                }
+                        sh "bash Codes/Jenkins/config_management.sh"
+		}
         }
         stage("Deploy"){
             steps{
