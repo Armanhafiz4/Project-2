@@ -12,12 +12,15 @@ pipeline{
             }
         stage("Build & Push"){
             steps{
-                        sh "bash Codes/Jenkins/build_push.sh"
-                }
-        }
-        stage("Config Management (ansible)"){
+		script{
+                        sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
+			sh "docker system prune -af"
+	                }
+       		 }
+	}
+	stage("Config Management (ansible)"){
             steps{
-                        sh "bash Codes/Jenkins/config_ansible.sh"
+                        sh "cd Codes/Ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
                 }
         }
         stage("Deploy"){
