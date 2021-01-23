@@ -12,10 +12,7 @@ pipeline{
             }
         stage("Build & Push"){
             steps{
-		script{
-                        sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose up -d"
-			sh "docker system prune -af"
-	                }
+			sh "bash Codes/Jenkins/build_push.sh"
        		 }
 	}
 	stage("Config Management (ansible)"){
