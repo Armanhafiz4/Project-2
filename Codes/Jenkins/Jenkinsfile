@@ -22,12 +22,12 @@ pipeline{
             }
         stage("Config Management (ansible)"){
             steps{
-                sh "bash Jenkins/config_ansible.sh"
+                	sh "bash Jenkins/config_ansible.sh"
             }
         }
         stage("Deploy"){
             steps{
-                sh "bash Jenkins/deploy.sh"
+                	sh "bash Jenkins/deploy.sh"
             }
         }
     post{
