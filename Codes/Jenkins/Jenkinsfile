@@ -8,7 +8,7 @@ pipeline{
         stage("Testing"){
             steps{
                 script{
-                        sh "bash jenkins/test.sh"
+                        sh "bash Jenkins/test.sh"
                     }
                 }
             }
@@ -22,12 +22,12 @@ pipeline{
             }
         stage("Config Management (ansible)"){
             steps{
-                sh "bash jenkins/config_ansible.sh"
+                sh "bash Jenkins/config_ansible.sh"
             }
         }
         stage("Deploy"){
             steps{
-                sh "bash jenkins/deploy.sh"
+                sh "bash Jenkins/deploy.sh"
             }
         }
     post{
