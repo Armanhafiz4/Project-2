@@ -4,5 +4,5 @@ import random
 
 @app.route("/weakness", methods=["GET"])
 def get_weakness():
-    weaknesses = [ "passing", "dribbling", "heading"]
+    weaknesses = [ "passing", "dribbling", "reflexes"]
     return Response(str(random.choice(weaknesses)), mimetype='text/plain')
