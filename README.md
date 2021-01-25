@@ -9,6 +9,8 @@
 - Create an Ansible Playbook that will provision the environment that your application needs to run
 - Project must make use of a reverse proxy (NGINX) to make your application accessible to the user
 
+### Project Tracking:
+
 My trello board to plan my project and to track where I need to be upto date with can be found here:
 https://trello.com/b/goLwBUbZ/qa-sfia2 
 
