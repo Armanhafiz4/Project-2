@@ -23,7 +23,22 @@ It would also save upto the 5 most recent strengths and its following most suita
 
 The feature branch would change the positions and strengths and weaknesses as it adds a new strength, weakness and 2 new positions.  
 
+For my project my private keys would be the strength trait, the weakness trait, and then the positions generated.  
+
 ### Risk assessment:
+
+A risk would be that the database isn't being connected to my application. The assessment of this would be that this wouldn't allow the data to be stored in my application and the user wouldn't be able to read their most recent strength traits and most suitable position. I would mitigate this by running a new database and connecting my project to this new database. This would therefore allow the user to view their recent strength traits and suitable positions on the new sql database. This is a low risk.
+
+A risk would be that my web server goes dark. This is when the vm instance which the web server is hosted on could experience a blackout. This would mean that my application wouldn't be able to run via flask. This is a low risk and I would mitigate this by setting up a backup virtual machine incase my first vm shuts down or experience a blackout. This wouldn't be my responsibility as it would be the responsibility of Google Cloud Platform (GCP).
+
+A risk would be that my MVP is not delivered on time. This is a low risk and it would be the developers responsibility. This could happen for multiple reasons such as external events factoring in. I would mitigate this by using a project tracking planner with my Trello board to make sure I keep upto date and in track with my project.
+
+After my project I decided to update my risk assessment with the following risks:
+
+A risk is my jenkins could lose access to github. This would impact my webhook as it would lose connection to my github repo so any additions made to my main branch wouldnt be acquired by my Jenkins browser. This is a high risk and I would mitigate this by making sure that my Jenkins vm is up and running smoothly and also I could test my jenkins webhook before my project is delivered. 
+
+A risk is also that my Jenkins pipeline could malfunction. This could be due to codes not being in the correct place and this is a problem as it would refrain my Jenkins from its job which is to automate my tests, my builds, my ansible environment configuration and also my deployment. This wouldnt allow my application to be tested or deployed which would make the user unable to see and view my application. I would mitigate this by running my jenkins pipeline beforehand and seeing if everything runs smoothly. 
+
 
 ### My application and tests
 
