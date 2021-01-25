@@ -19,6 +19,6 @@ class TestResponse(TestBase):
 
             for _ in range(10):
                 response = self.client.get(url_for('get_strength'))
-                self.assertIn(response.data, [b"pace", b"defending", b"shooting"])
+                self.assertIn(response.data, [b"pace", b"defending", b"crossing"])
 
     

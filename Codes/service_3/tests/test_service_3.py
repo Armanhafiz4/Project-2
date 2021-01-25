@@ -19,4 +19,4 @@ class TestResponse(TestBase):
 
             for _ in range(10):
                 response = self.client.get(url_for('get_weakness'))
-                self.assertIn(response.data, [b"passing", b"dribbling", b"heading"])
+                self.assertIn(response.data, [b"passing", b"dribbling", b"reflexes"])
