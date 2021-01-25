@@ -3,44 +3,34 @@ pipeline{
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
         app_version = 'version1'
-        rollback = 'true'
-        replicas = 5
     }
     stages{
         stage("Testing"){
             steps{
-                script{
-                    if (env.rollback == 'false') {
-                        sh "bash jenkins/test.sh"
-                    }
+                        sh "bash Codes/Jenkins/test.sh"
                 }
             }
-        }
         stage("Build & Push"){
             steps{
-                script{
-                    if (env.rollback == 'false') {
-                        sh "bash Jenkins/build_push.sh"
-                    }
-                }
-            }
-        }
-        stage("Config Management (ansible)"){
+			sh "bash Codes/Jenkins/build_push.sh"
+       		 }
+	}
+	stage("Config Management (ansible)"){
             steps{
-                sh "bash Jenkins/config_ansible.sh"
-            }
+                        sh "bash Codes/Jenkins/config_management.sh"
+		}
         }
         stage("Deploy"){
             steps{
-                sh "bash jenkins/deploy.sh"
-            }
-        }
-    }
+			sh "bash Codes/Jenkins/deploy.sh"
+                	}
+        	}
+	}
     post{
         always{
             junit "**/junit.xml"
             cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false, failUnstable: false, onlyStable: false
         }
     }
-}
+} 
         
