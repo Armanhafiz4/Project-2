@@ -22,3 +22,11 @@ Service 2 generates a random footballer strength (Reflexes, Defending, Crossing,
 Service 3 generates a random footballer weakness (Reflexes, Defending, Crossing, Speed, Shooting, Passing)
 Service 4 generates a footballer's most suitable and least suitable position with their random strength and weakness (Centreback, Winger, Striker)
 It would also save upto the 5 most recent strengths and its following most suitable position
+
+### Risk assessment:
+
+### My application and tests
+
+### Jenkins 
+
+### Future improvements
