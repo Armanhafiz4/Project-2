@@ -4,5 +4,5 @@ import random
 
 @app.route("/strength", methods=["GET"])
 def get_strength():
-    strengths = [ "pace", "defending", "shooting"]
+    strengths = [ "pace", "defending", "crossing"]
     return Response(str(random.choice(strengths)), mimetype='text/plain') 
